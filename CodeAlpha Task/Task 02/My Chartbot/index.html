@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University of Kotli Assistant</title>
+    <!-- Direct link without any folders -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="glass-panel">
+    <div class="panel-header">
+        <div class="header-title-container">
+            <!-- Direct image reference -->
+            <img src="logo.jpg" alt="University of Kotli Logo" class="uni-logo">
+            <h1>UOK Chatbot</h1>
+        </div>
+        <p>Official Admission Assistant</p>
+    </div>
+    
+    <div class="panel-body" id="chatContainer">
+        <div class="bubble bot-bubble">
+            Please request information by typing your specific question or selecting a number key (1-6):<br><br>
+            <b>1.</b> General Institutional Introduction<br>
+            <b>2.</b> Fall 2026 Admission Schedule & Deadline<br>
+            <b>3.</b> Academic Eligibility & Merit Criteria<br>
+            <b>4.</b> Semester Tuition Fee Structure<br>
+            <b>5.</b> Step-by-Step Online Application Process<br>
+            <b>6.</b> Campus Geographic Location Map
+        </div>
+    </div>
+    
+    <div class="panel-footer">
+        <input type="text" id="userInput" placeholder="Ask a question or select 1-6..." onkeydown="if(event.key === 'Enter') sendBtn()"/>
+        <button onclick="sendBtn()">Send</button>
+    </div>
+</div>
+
+<!-- Direct script reference -->
+<script src="script.js"></script>
+</body>
+</html>

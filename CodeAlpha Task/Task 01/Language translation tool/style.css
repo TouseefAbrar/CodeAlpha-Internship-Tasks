@@ -1,0 +1,247 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background: url('https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=1470&auto=format&fit=crop') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.glass-panel {
+    width: 100%;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #1a202c;
+}
+
+.header-icon {
+    font-size: 1.8rem;
+    color: #00bfa5;
+}
+
+.panel-header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.selectors-row {
+    display: flex;
+    gap: 30px;
+}
+
+.dropdown-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dropdown-group label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.dropdown-group select {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    color: #2d3748;
+    outline: none;
+    cursor: pointer;
+}
+
+.translation-container {
+    display: flex;
+    gap: 25px;
+}
+
+.text-box-wrapper {
+    flex: 1;
+    height: 250px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.text-box-wrapper textarea {
+    width: 100%;
+    flex: 1;
+    border: none;
+    outline: none;
+    resize: none;
+    background: transparent;
+    font-size: 1.1rem;
+    color: #2d3748;
+    line-height: 1.5;
+    /* Added padding bottom taake text mic ya buttons ke piche na jaye */
+    padding-bottom: 50px; 
+}
+
+.output-wrapper {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+/* Mic Button Styling */
+.input-actions {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 5;
+}
+
+.mic-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: #e2e8f0;
+    color: #4a5568;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.mic-btn:hover {
+    background: #cbd5e1;
+    transform: scale(1.05);
+}
+
+/* JavaScript toggles this dynamic layout state directly */
+.mic-btn.recording {
+    background: #ff5252 !important;
+    color: white !important;
+    animation: pulse 1.2s infinite;
+}
+
+/* Audio Wave Player Box Styling */
+.voice-player-box {
+    position: absolute;
+    bottom: 15px;
+    /* Left side par shift kiya taake right corner ke buttons se na takraye */
+    left: 15px; 
+    background: #1a202c;
+    padding: 8px 14px;
+    border-radius: 30px;
+    display: none; /* Controlled via JS */
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 5;
+}
+
+.voice-player-box span {
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.wave-bar {
+    width: 3px;
+    height: 12px;
+    background: #00bfa5;
+    border-radius: 3px;
+    animation: wave 0.6s ease-in-out infinite alternate;
+}
+.wave-bar:nth-child(2) { animation-delay: 0.15s; }
+.wave-bar:nth-child(3) { animation-delay: 0.3s; }
+.wave-bar:nth-child(4) { animation-delay: 0.45s; }
+
+.action-buttons {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    gap: 10px;
+    z-index: 5;
+}
+
+.action-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: #ffffff;
+    color: #00bfa5;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+    transform: scale(1.05);
+    background: #f8fafc;
+}
+
+.translate-cta {
+    width: 100%;
+    padding: 16px;
+    background: #00bfa5;
+    color: #ffffff;
+    border: none;
+    border-radius: 16px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 191, 165, 0.25);
+    transition: background 0.2s ease;
+}
+
+.translate-cta:hover {
+    background: #00a68f;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.5); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 82, 82, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 82, 82, 0); }
+}
+
+@keyframes wave {
+    0% { height: 4px; }
+    100% { height: 18px; }
+}
+
+@media (max-width: 768px) {
+    .selectors-row, .translation-container { flex-direction: column; }
+    .text-box-wrapper { height: 200px; }
+    /* Mobile standard responsive shift for voice overlay */
+    .voice-player-box { bottom: 70px; left: 15px; } 
+}

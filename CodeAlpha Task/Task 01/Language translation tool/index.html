@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature AI Translator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="glass-panel">
+    <div class="panel-header">
+        <i class="fa-solid fa-leaf header-icon"></i>
+        <h1>Nature AI Translator</h1>
+    </div>
+
+    <!-- Dropdowns Row -->
+    <div class="selectors-row">
+        <div class="dropdown-group">
+            <label>Input Language</label>
+            <select id="sourceLang">
+                <option value="en" selected>English</option>
+                <option value="ur">Urdu (Pakistan)</option>
+                <option value="ar">Arabic</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+                <option value="hi">Hindi</option>
+            </select>
+        </div>
+
+        <div class="dropdown-group">
+            <label>Target Language</label>
+            <select id="targetLang">
+                <option value="ur" selected>Urdu (Pakistan)</option>
+                <option value="ar">Arabic</option>
+                <option value="en">English</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="ja">Japanese</option>
+                <option value="hi">Hindi</option>
+                <option value="pa">Punjabi</option>
+                <option value="tr">Turkish</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Text IO Boxes Core -->
+    <div class="translation-container">
+        <!-- Input Panel with Mic -->
+        <div class="text-box-wrapper">
+            <textarea id="sourceText" placeholder="Start typing or click the mic to speak..."></textarea>
+            <div class="input-actions">
+                <button class="mic-btn" id="micBtn" onclick="startSpeechRecognition()" title="Speak/Record Voice">
+                    <i class="fa-solid fa-microphone"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Output Panel with Voice Wave Box -->
+        <div class="text-box-wrapper output-wrapper">
+            <textarea id="targetText" placeholder="Translation will appear here..." readonly></textarea>
+            
+            <!-- Dynamic Audio Playing Wave Box (Initially Hidden) -->
+            <div class="voice-player-box" id="voicePlayerBox">
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <span>Playing AI Voice...</span>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn score-btn" onclick="speakTranslation()" title="Listen Voice">
+                    <i class="fa-solid fa-volume-high"></i>
+                </button>
+                <button class="action-btn" onclick="copyTranslation()" title="Copy Text">
+                    <i class="fa-solid fa-copy"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <button class="translate-cta" onclick="performTranslation()">Translate Now</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
